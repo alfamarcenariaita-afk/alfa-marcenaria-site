@@ -6,6 +6,9 @@ backend:
   name: github
   repo: SUBSTITUIR_POR_conta-da-alfa/alfa-marcenaria-site
   branch: main
+  # Precisa ser exatamente o mesmo dominio de `siteConfig.url` em lib/metadata.js (YAML nao
+  # consegue referenciar o valor JS) — se o dominio final mudar, atualizar aqui tambem, senao
+  # o painel chama /api/auth no dominio antigo e o login do CMS quebra sem erro claro.
   base_url: https://alfamarcenaria.com.br/api
   auth_endpoint: auth
 
@@ -62,6 +65,7 @@ collections:
         name: categoria
         widget: select
         options: [Portas, Marcos, Alizares, Corrimãos, Outros]
+        default: Outros
       - { label: Foto, name: imagem, widget: image, required: false }
       - { label: Descrição, name: body, widget: markdown }
 

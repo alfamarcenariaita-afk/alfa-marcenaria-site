@@ -7,7 +7,10 @@ Passo a passo pra colocar o site no ar. Tudo em nome da própria Alfa/Lucilene, 
 1. Lucilene cria uma conta em https://github.com/signup com o e-mail dela.
 2. Cria um repositório novo (privado ou público, tanto faz) chamado `alfa-marcenaria-site`.
 3. Ela adiciona a Jessica como colaboradora (Settings → Collaborators) — a Jessica confirma o convite.
-4. `git remote add origin <url-do-repo-dela>` e `git push -u origin master` a partir deste projeto.
+4. `git remote add origin <url-do-repo-dela>` e `git push -u origin main` a partir deste projeto
+   (o nome `main` precisa bater com o `branch: main` já configurado em `public/admin/config.yml`,
+   senão o botão "Salvar" do painel `/admin` falha silenciosamente por apontar pra uma branch que
+   não existe).
 
 ## 2. Conta da Vercel
 
@@ -23,8 +26,10 @@ Passo a passo pra colocar o site no ar. Tudo em nome da própria Alfa/Lucilene, 
 3. A Vercel mostra os registros DNS necessários (normalmente um `CNAME` ou `A`) — configurar isso
    no painel do Registro.br.
 4. Atualizar `siteConfig.url` em `lib/metadata.js` se o domínio final for diferente de
-   `alfamarcenaria.com.br`, e o `repo` em `public/admin/config.yml` com o nome real
-   `usuario-da-alfa/alfa-marcenaria-site`.
+   `alfamarcenaria.com.br`, o `repo` em `public/admin/config.yml` com o nome real
+   `usuario-da-alfa/alfa-marcenaria-site`, **e também o `base_url` em `public/admin/config.yml`**
+   (tem que ser exatamente o mesmo domínio de `siteConfig.url`, senão o painel `/admin` chama
+   `/api/auth` no domínio antigo e o login do CMS para de funcionar sem erro claro).
 
 ## 4. GitHub OAuth App (login do painel `/admin`)
 
@@ -59,7 +64,8 @@ O conteúdo hoje em `content/` é **placeholder de exemplo**. Antes de divulgar 
 - Adicionar fotos reais de trabalhos entregues na coleção Portfólio.
 - Revisar/expandir os posts de blog de exemplo, ou escrever novos, usando as skills
   `seo-content-writer`, `geo-fundamentals` e `rank-local` (palavra-chave local, formato de
-  pergunta-resposta direto).
+  pergunta-resposta direto). **Lançar com pelo menos 3-5 posts** (hoje existem só 2 posts de
+  exemplo em `content/blog/`) — blog vazio ou quase vazio não ranqueia.
 - Checar se o Google Business Profile da Alfa existe e está com telefone/endereço iguais aos
   do site (consistência de NAP).
 
