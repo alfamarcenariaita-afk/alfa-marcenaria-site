@@ -4,6 +4,9 @@
     <meta charset="utf-8" />
     <title>Painel — Alfa Marcenaria</title>
     <meta name="robots" content="noindex" />
+    <!-- Garante que referencias relativas (ex.: config.yml) resolvam para /admin/
+         mesmo quando a pagina e servida via rewrite em /admin (sem barra final). -->
+    <base href="/admin/" />
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>

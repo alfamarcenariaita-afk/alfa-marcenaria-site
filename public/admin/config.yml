@@ -12,6 +12,13 @@ backend:
 media_folder: public/images/uploads
 public_folder: /images/uploads
 
+# Sem isso, slugs de titulos acentuados (ex.: "Corrimão") viram nomes de arquivo
+# com acento (corrimão.md) em vez de puro ASCII (corrimao.md) — inconsistente
+# com os slugs existentes em content/ (todos ASCII, ex.: marco-de-porta.md).
+slug:
+  encoding: "ascii"
+  clean_accents: true
+
 collections:
   - name: paginas
     label: Páginas
@@ -48,6 +55,7 @@ collections:
     folder: content/servicos
     create: true
     slug: "{{slug}}"
+    identifier_field: nome
     fields:
       - { label: Nome, name: nome, widget: string }
       - label: Categoria
@@ -62,6 +70,7 @@ collections:
     folder: content/portfolio
     create: true
     slug: "{{slug}}"
+    identifier_field: titulo
     fields:
       - { label: Título, name: titulo, widget: string }
       - { label: Foto, name: imagem, widget: image, required: false }
@@ -73,6 +82,7 @@ collections:
     folder: content/blog
     create: true
     slug: "{{slug}}"
+    identifier_field: titulo
     fields:
       - { label: Título, name: titulo, widget: string }
       - { label: Data, name: data, widget: datetime }
