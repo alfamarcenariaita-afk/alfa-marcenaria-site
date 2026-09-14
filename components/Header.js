@@ -24,6 +24,22 @@ export default function Header() {
             </Link>
           ))}
         </nav>
+        <details className="sm:hidden relative">
+          <summary className="list-none cursor-pointer px-3 py-2 border border-neutral-300 rounded-md text-sm font-medium text-neutral-700">
+            Menu
+          </summary>
+          <nav className="absolute right-0 mt-2 w-48 bg-white border border-neutral-200 rounded-md shadow-lg flex flex-col text-sm z-10">
+            {LINKS.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="text-neutral-700 hover:text-amber-700 px-4 py-3 border-b border-neutral-100 last:border-b-0"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+        </details>
       </div>
     </header>
   );

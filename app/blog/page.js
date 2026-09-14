@@ -20,7 +20,7 @@ export default function BlogPage() {
               {post.titulo}
             </Link>
             <p className="text-sm text-neutral-500 mt-1">
-              {new Date(post.data).toLocaleDateString("pt-BR")}
+              {new Date(post.data).toLocaleDateString("pt-BR", { timeZone: "UTC" })}
             </p>
             <p className="text-neutral-700 mt-2">{post.resumo}</p>
           </li>
