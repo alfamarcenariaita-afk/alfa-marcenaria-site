@@ -1,0 +1,81 @@
+# local_backend: true so tem efeito quando roda `npx decap-server` em paralelo (uso local/teste).
+# Em producao esse valor e ignorado e o backend "github" abaixo (com OAuth, Task 12) e usado.
+local_backend: true
+
+backend:
+  name: github
+  repo: SUBSTITUIR_POR_conta-da-alfa/alfa-marcenaria-site
+  branch: main
+  base_url: https://alfamarcenaria.com.br/api
+  auth_endpoint: auth
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: paginas
+    label: Páginas
+    files:
+      - name: home
+        label: Home
+        file: content/paginas/home.md
+        fields:
+          - { label: Título, name: titulo, widget: string }
+          - { label: Subtítulo, name: subtitulo, widget: string }
+          - { label: "Texto do botão", name: chamada, widget: string }
+          - { label: "WhatsApp (só números, com DDI+DDD)", name: whatsapp, widget: string }
+          - { label: "Texto de introdução", name: body, widget: markdown }
+      - name: sobre
+        label: Sobre
+        file: content/paginas/sobre.md
+        fields:
+          - { label: Título, name: titulo, widget: string }
+          - { label: Texto, name: body, widget: markdown }
+      - name: contato
+        label: Contato
+        file: content/paginas/contato.md
+        fields:
+          - { label: Título, name: titulo, widget: string }
+          - { label: Telefone, name: telefone, widget: string }
+          - { label: "WhatsApp (só números)", name: whatsapp, widget: string }
+          - { label: Endereço, name: endereco, widget: string }
+          - { label: "Instagram (@usuario)", name: instagram, widget: string }
+          - { label: "Horário de atendimento", name: horario, widget: string }
+          - { label: "Texto extra", name: body, widget: markdown, required: false }
+
+  - name: servicos
+    label: Serviços
+    folder: content/servicos
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Nome, name: nome, widget: string }
+      - label: Categoria
+        name: categoria
+        widget: select
+        options: [Portas, Marcos, Alizares, Corrimãos, Outros]
+      - { label: Foto, name: imagem, widget: image, required: false }
+      - { label: Descrição, name: body, widget: markdown }
+
+  - name: portfolio
+    label: Portfólio
+    folder: content/portfolio
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Título, name: titulo, widget: string }
+      - { label: Foto, name: imagem, widget: image, required: false }
+      - { label: Categoria, name: categoria, widget: string, required: false }
+      - { label: Legenda, name: body, widget: markdown, required: false }
+
+  - name: blog
+    label: Blog
+    folder: content/blog
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Título, name: titulo, widget: string }
+      - { label: Data, name: data, widget: datetime }
+      - { label: "Imagem de capa", name: imagemCapa, widget: image, required: false }
+      - { label: "Resumo (aparece no Google)", name: resumo, widget: text }
+      - { label: Conteúdo, name: body, widget: markdown }
