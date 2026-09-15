@@ -13,7 +13,7 @@ export default function ServicosPage() {
   const servicos = obterColecao("servicos");
   return (
     <section className="max-w-5xl mx-auto px-4 py-16">
-      <h1 className="text-3xl font-bold mb-8">Nossos serviços</h1>
+      <h1 className="font-serif text-3xl font-bold mb-8 text-wood-900">Nossos serviços</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {servicos.map((s) => (
           <Card key={s.slug} imagem={s.imagem} titulo={s.nome} categoria={s.categoria} descricaoHtml={s.corpoHtml} />

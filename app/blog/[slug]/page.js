@@ -23,8 +23,8 @@ export default async function PostPage({ params }) {
     <>
       <ArticleJsonLd post={post} url={url} />
       <article className="max-w-3xl mx-auto px-4 py-16">
-        <h1 className="text-3xl font-bold">{post.titulo}</h1>
-        <p className="text-sm text-neutral-500 mt-2">
+        <h1 className="font-serif text-3xl font-bold text-wood-900">{post.titulo}</h1>
+        <p className="text-sm text-wood-700/70 mt-2">
           {new Date(post.data).toLocaleDateString("pt-BR", { timeZone: "UTC" })}
         </p>
         <div className="prose prose-neutral mt-6" dangerouslySetInnerHTML={{ __html: post.corpoHtml }} />

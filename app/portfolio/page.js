@@ -12,7 +12,7 @@ export default function PortfolioPage() {
   const trabalhos = obterColecao("portfolio");
   return (
     <section className="max-w-5xl mx-auto px-4 py-16">
-      <h1 className="text-3xl font-bold mb-8">Portfólio</h1>
+      <h1 className="font-serif text-3xl font-bold mb-8 text-wood-900">Portfólio</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {trabalhos.map((t) => (
           <Card key={t.slug} imagem={t.imagem} titulo={t.titulo} categoria={t.categoria} descricaoHtml={t.corpoHtml} />

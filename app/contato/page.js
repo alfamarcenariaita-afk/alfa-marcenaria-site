@@ -15,22 +15,25 @@ export default function ContatoPage() {
     <>
       <LocalBusinessJsonLd contato={contato} />
       <section className="max-w-3xl mx-auto px-4 py-16">
-        <h1 className="text-3xl font-bold mb-6">{contato.titulo}</h1>
-        <dl className="space-y-2 text-neutral-700">
-          <div><dt className="font-semibold inline">Telefone: </dt><dd className="inline">{contato.telefone}</dd></div>
-          <div><dt className="font-semibold inline">Endereço: </dt><dd className="inline">{contato.endereco}</dd></div>
-          <div><dt className="font-semibold inline">Horário: </dt><dd className="inline">{contato.horario}</dd></div>
+        <h1 className="font-serif text-3xl font-bold mb-6 text-wood-900">{contato.titulo}</h1>
+        <dl className="space-y-2 text-wood-700">
+          <div><dt className="font-semibold inline text-wood-900">Telefone: </dt><dd className="inline">{contato.telefone}</dd></div>
+          <div><dt className="font-semibold inline text-wood-900">Endereço: </dt><dd className="inline">{contato.endereco}</dd></div>
+          <div><dt className="font-semibold inline text-wood-900">Horário: </dt><dd className="inline">{contato.horario}</dd></div>
           {contato.instagram && (
-            <div><dt className="font-semibold inline">Instagram: </dt><dd className="inline">{contato.instagram}</dd></div>
+            <div><dt className="font-semibold inline text-wood-900">Instagram: </dt><dd className="inline">{contato.instagram}</dd></div>
           )}
         </dl>
         <div className="prose prose-neutral mt-6" dangerouslySetInnerHTML={{ __html: contato.corpoHtml }} />
         <a
           href={linkWhatsapp(contato.whatsapp, "página de Contato")}
-          className="inline-block mt-8 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700"
+          className="inline-block mt-8 bg-wood-900 text-white px-7 py-3 rounded-lg font-semibold hover:bg-wood-800 transition-colors"
         >
           Falar no WhatsApp
         </a>
+        <p className="text-sm text-wood-700/70 mt-4">
+          Orçamento sem compromisso. Atendimento direto com quem faz a peça, do orçamento à entrega.
+        </p>
       </section>
     </>
   );

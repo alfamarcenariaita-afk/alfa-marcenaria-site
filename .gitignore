@@ -3,3 +3,6 @@ node_modules/
 .env*.local
 *.log
 .vercel
+# gerados automaticamente pelo Next.js a cada "next dev" (agentRules), nao sao conteudo do site
+AGENTS.md
+CLAUDE.md

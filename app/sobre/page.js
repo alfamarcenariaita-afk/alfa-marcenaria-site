@@ -11,7 +11,7 @@ export default function SobrePage() {
   const sobre = obterPagina("sobre");
   return (
     <section className="max-w-3xl mx-auto px-4 py-16">
-      <h1 className="text-3xl font-bold mb-6">{sobre.titulo}</h1>
+      <h1 className="font-serif text-3xl font-bold mb-6 text-wood-900">{sobre.titulo}</h1>
       <div className="prose prose-neutral" dangerouslySetInnerHTML={{ __html: sobre.corpoHtml }} />
     </section>
   );
