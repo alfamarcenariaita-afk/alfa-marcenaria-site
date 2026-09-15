@@ -5,17 +5,27 @@
 // Se INSTAGRAM_ACCESS_TOKEN nao existir ou a API falhar, a secao simplesmente nao aparece
 // (nunca quebra a pagina por causa do Instagram estar fora do ar).
 
+// pega alguns a mais que o necessario porque Reels/video as vezes vem sem thumbnail_url
+// (a API devolve o post, so nao devolve imagem pra mostrar) — filtra esses fora em vez de
+// deixar um quadrado preto/quebrado no meio da grade.
 async function buscarPosts() {
   const token = process.env.INSTAGRAM_ACCESS_TOKEN;
   if (!token) return [];
   try {
     const resposta = await fetch(
-      `https://graph.instagram.com/v23.0/me/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink&limit=6&access_token=${token}`,
+      `https://graph.instagram.com/v23.0/me/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink&limit=12&access_token=${token}`,
       { next: { revalidate: 3600 } }
     );
     if (!resposta.ok) return [];
     const dados = await resposta.json();
-    return dados.data || [];
+    const posts = dados.data || [];
+    return posts
+      .map((post) => ({
+        ...post,
+        imagemExibida: post.media_type === "VIDEO" ? post.thumbnail_url : post.media_url,
+      }))
+      .filter((post) => Boolean(post.imagemExibida))
+      .slice(0, 6);
   } catch (e) {
     return [];
   }
@@ -40,7 +50,7 @@ export default async function InstagramFeed() {
             className="block rounded-lg overflow-hidden border border-wood-100 hover:opacity-90 transition-opacity"
           >
             <img
-              src={post.media_type === "VIDEO" ? post.thumbnail_url : post.media_url}
+              src={post.imagemExibida}
               alt={post.caption ? post.caption.slice(0, 80) : "Post do Instagram da Alfa Marcenaria"}
               className="w-full aspect-square object-cover"
             />

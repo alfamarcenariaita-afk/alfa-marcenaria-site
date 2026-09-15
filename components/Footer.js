@@ -13,7 +13,17 @@ export default function Footer() {
         </div>
         <div className="sm:text-right">
           {contato.instagram && (
-            <p className="text-gold-500">Instagram: {contato.instagram}</p>
+            <p>
+              Instagram:{" "}
+              <a
+                href={`https://instagram.com/${contato.instagram.replace("@", "")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold-500 hover:underline"
+              >
+                {contato.instagram}
+              </a>
+            </p>
           )}
           <p className="mt-2 text-wood-200">© {ano} Alfa Marcenaria</p>
         </div>

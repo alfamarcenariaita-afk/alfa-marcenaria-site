@@ -2,6 +2,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import WhatsappFlutuante from "../components/WhatsappFlutuante";
 import { construirMetadata } from "../lib/metadata";
 
 // Playfair (títulos) + Inter (texto) — dupla clássica/moderna pra passar autoridade
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <WhatsappFlutuante />
       </body>
     </html>
   );

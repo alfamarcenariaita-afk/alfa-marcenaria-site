@@ -42,6 +42,13 @@ export default function HomePage() {
             {home.chamada}
           </a>
         </div>
+        <div className="max-w-4xl mx-auto px-4 pb-16 sm:pb-20">
+          <img
+            src="/images/uploads/fachada-porta-pivotante.jpg"
+            alt="Porta pivotante em madeira maciça, fachada de residência em Itabirito/MG"
+            className="w-full rounded-2xl shadow-lg object-cover max-h-[520px]"
+          />
+        </div>
       </section>
 
       <section className="max-w-5xl mx-auto px-4 py-12">
