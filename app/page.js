@@ -4,6 +4,7 @@ import { construirMetadata } from "../lib/metadata";
 import { linkWhatsapp } from "../lib/whatsapp";
 import LocalBusinessJsonLd from "../components/LocalBusinessJsonLd";
 import Card from "../components/Card";
+import InstagramFeed from "../components/InstagramFeed";
 
 export const metadata = construirMetadata({
   descricao:
@@ -75,6 +76,8 @@ export default function HomePage() {
           </div>
         </section>
       )}
+
+      <InstagramFeed />
     </>
   );
 }
