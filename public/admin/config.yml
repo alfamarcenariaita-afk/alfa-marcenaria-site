@@ -40,6 +40,7 @@ collections:
         file: content/paginas/sobre.md
         fields:
           - { label: Título, name: titulo, widget: string }
+          - { label: Foto da equipe, name: imagem, widget: image, required: false }
           - { label: Texto, name: body, widget: markdown }
       - name: contato
         label: Contato

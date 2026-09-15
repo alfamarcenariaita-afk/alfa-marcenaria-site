@@ -1,5 +1,6 @@
 ---
 titulo: Sobre a Alfa Marcenaria
+imagem: /images/uploads/equipe-alfa-marcenaria.jpg
 ---
 
 A Alfa Marcenaria abriu as portas em agosto de 2024, em Itabirito/MG. O trabalho com madeira por trás dela, porém, não começou aí: o sócio André traz mais de 20 anos de experiência no setor de marcenaria, e é essa vivência que sustenta cada peça que sai da oficina: portas, marcos, janelas, alizares, corrimões e trabalhos sob medida.
