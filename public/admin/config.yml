@@ -4,7 +4,7 @@ local_backend: true
 
 backend:
   name: github
-  repo: SUBSTITUIR_POR_conta-da-alfa/alfa-marcenaria-site
+  repo: alfamarcenariaita-afk/alfa-marcenaria-site
   branch: main
   # Precisa ser exatamente o mesmo dominio de `siteConfig.url` em lib/metadata.js (YAML nao
   # consegue referenciar o valor JS) — se o dominio final mudar, atualizar aqui tambem, senao
@@ -64,7 +64,7 @@ collections:
       - label: Categoria
         name: categoria
         widget: select
-        options: [Portas, Marcos, Alizares, Corrimãos, Outros]
+        options: [Portas, Marcos, Janelas, Alizares, Corrimãos, Personalizado, Outros]
         default: Outros
       - { label: Foto, name: imagem, widget: image, required: false }
       - { label: Descrição, name: body, widget: markdown }

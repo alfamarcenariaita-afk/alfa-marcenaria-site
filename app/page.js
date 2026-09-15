@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { obterPagina, obterColecao } from "../lib/content";
 import { construirMetadata } from "../lib/metadata";
+import { linkWhatsapp } from "../lib/whatsapp";
 import LocalBusinessJsonLd from "../components/LocalBusinessJsonLd";
 import Card from "../components/Card";
 
@@ -25,7 +26,7 @@ export default function HomePage() {
           dangerouslySetInnerHTML={{ __html: home.corpoHtml }}
         />
         <a
-          href={`https://wa.me/${home.whatsapp}`}
+          href={linkWhatsapp(home.whatsapp, "Home")}
           className="inline-block mt-8 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700"
         >
           {home.chamada}

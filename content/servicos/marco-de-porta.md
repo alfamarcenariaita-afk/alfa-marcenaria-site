@@ -1,7 +1,7 @@
 ---
-nome: Marco de Porta
+nome: Marco de Porta e Janela
 categoria: Marcos
-imagem: /images/uploads/exemplo-marco.jpg
+imagem: /images/uploads/marco-porta-oficina.jpg
 ---
 
-Marco de porta feito sob medida, em madeira Cumaru ou Angelim, pronto para receber a porta e o acabamento da obra.
+Marco de porta e de janela feito sob medida, na espessura de parede exata da obra, em madeira maciça. Base para o encaixe certo da porta ou janela e do acabamento ao redor.

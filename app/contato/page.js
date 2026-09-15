@@ -1,5 +1,6 @@
 import { obterPagina } from "../../lib/content";
 import { construirMetadata } from "../../lib/metadata";
+import { linkWhatsapp } from "../../lib/whatsapp";
 import LocalBusinessJsonLd from "../../components/LocalBusinessJsonLd";
 
 export const metadata = construirMetadata({
@@ -25,7 +26,7 @@ export default function ContatoPage() {
         </dl>
         <div className="prose prose-neutral mt-6" dangerouslySetInnerHTML={{ __html: contato.corpoHtml }} />
         <a
-          href={`https://wa.me/${contato.whatsapp}`}
+          href={linkWhatsapp(contato.whatsapp, "página de Contato")}
           className="inline-block mt-8 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700"
         >
           Falar no WhatsApp
