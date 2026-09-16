@@ -25,29 +25,26 @@ export default function HomePage() {
   return (
     <>
       <LocalBusinessJsonLd contato={contato} />
-      <section className="bg-white border-b border-wood-100">
-        <div className="max-w-3xl mx-auto px-4 py-16 sm:py-20 text-center">
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold text-wood-900 leading-tight">
+      <section
+        className="relative bg-cover bg-center"
+        style={{ backgroundImage: "url(/images/uploads/fachada-porta-pivotante.jpg)" }}
+      >
+        <div className="absolute inset-0 bg-wood-900/70" />
+        <div className="relative max-w-3xl mx-auto px-4 py-24 sm:py-32 text-center">
+          <h1 className="font-serif text-4xl sm:text-5xl font-bold text-white leading-tight">
             {home.titulo}
           </h1>
-          <p className="text-xl text-wood-700 mt-4">{home.subtitulo}</p>
+          <p className="text-xl text-gold-500 mt-4">{home.subtitulo}</p>
           <div
-            className="mt-6 prose prose-neutral mx-auto"
+            className="mt-6 prose prose-invert mx-auto"
             dangerouslySetInnerHTML={{ __html: home.corpoHtml }}
           />
           <a
             href={linkWhatsapp(home.whatsapp, "Home")}
-            className="inline-block mt-8 bg-wood-900 text-white px-7 py-3 rounded-lg font-semibold hover:bg-wood-800 transition-colors"
+            className="inline-block mt-8 bg-white text-wood-900 px-7 py-3 rounded-lg font-semibold hover:bg-gold-500 hover:text-white transition-colors"
           >
             {home.chamada}
           </a>
-        </div>
-        <div className="max-w-4xl mx-auto px-4 pb-16 sm:pb-20">
-          <img
-            src="/images/uploads/fachada-porta-pivotante.jpg"
-            alt="Porta pivotante em madeira maciça, fachada de residência em Itabirito/MG"
-            className="w-full rounded-2xl shadow-lg object-cover max-h-[520px]"
-          />
         </div>
       </section>
 
