@@ -41,7 +41,7 @@ export default function HomePage() {
           />
           <a
             href={linkWhatsapp(home.whatsapp, "Home")}
-            className="inline-block mt-8 bg-white text-wood-900 px-7 py-3 rounded-lg font-semibold hover:bg-gold-500 hover:text-white transition-colors"
+            className="inline-block mt-8 bg-white text-wood-900 px-7 py-3 rounded-lg font-semibold hover:bg-wood-900 hover:text-white transition-colors"
           >
             {home.chamada}
           </a>

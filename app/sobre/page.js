@@ -16,7 +16,9 @@ export default function SobrePage() {
         <img
           src={sobre.imagem}
           alt="Equipe da Alfa Marcenaria"
-          className="w-full max-w-md mx-auto rounded-xl shadow-sm mb-8"
+          width={640}
+          height={480}
+          className="w-full max-w-md aspect-[4/3] object-cover mx-auto rounded-xl shadow-sm mb-8"
         />
       )}
       <div className="prose prose-neutral" dangerouslySetInnerHTML={{ __html: sobre.corpoHtml }} />

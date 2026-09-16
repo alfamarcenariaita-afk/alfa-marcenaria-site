@@ -26,8 +26,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR" className={`${display.variable} ${body.variable}`}>
       <body className="min-h-screen flex flex-col bg-wood-50 text-wood-900 font-sans antialiased">
+        <a href="#conteudo" className="pular-para-conteudo bg-wood-900 text-white px-4 py-2 rounded-md font-medium">
+          Pular para o conteúdo
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="conteudo" className="flex-1">{children}</main>
         <Footer />
         <WhatsappFlutuante />
       </body>

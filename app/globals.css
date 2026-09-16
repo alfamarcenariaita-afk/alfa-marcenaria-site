@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Anel de foco visivel (teclado) em toda a navegacao, consistente com a paleta da marca. */
+:focus-visible {
+  outline: 2px solid #8f6836;
+  outline-offset: 2px;
+}
+
+/* Link "pular para o conteudo": some fora da tela, aparece ao ganhar foco por teclado. */
+.pular-para-conteudo {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 100;
+  transition: top 150ms ease-out;
+}
+.pular-para-conteudo:focus {
+  top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

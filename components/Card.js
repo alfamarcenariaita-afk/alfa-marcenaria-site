@@ -1,6 +1,6 @@
 export default function Card({ imagem, titulo, categoria, descricaoHtml }) {
   return (
-    <div className="rounded-xl overflow-hidden border border-wood-100 bg-white shadow-sm hover:shadow-md transition-shadow">
+    <div className="rounded-xl overflow-hidden border border-wood-100 bg-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-[box-shadow,transform] duration-200">
       {imagem && (
         <img
           src={imagem}

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const LINKS = [
   { href: "/", label: "Início" },
@@ -10,8 +13,10 @@ const LINKS = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
+
   return (
-    <header className="bg-white border-b-2 border-gold-500/60">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b-2 border-gold-500/60">
       <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-3">
           <img src="/logo.png" alt="Alfa Marcenaria" className="h-10 w-auto" width={40} height={40} />
@@ -20,26 +25,46 @@ export default function Header() {
           </span>
         </Link>
         <nav className="hidden sm:flex gap-6 text-sm font-medium">
-          {LINKS.map((l) => (
-            <Link key={l.href} href={l.href} className="text-wood-800 hover:text-gold-700 transition-colors">
-              {l.label}
-            </Link>
-          ))}
-        </nav>
-        <details className="sm:hidden relative">
-          <summary className="list-none cursor-pointer px-3 py-2 border border-wood-200 rounded-md text-sm font-medium text-wood-800">
-            Menu
-          </summary>
-          <nav className="absolute right-0 mt-2 w-48 bg-white border border-wood-100 rounded-md shadow-lg flex flex-col text-sm z-10">
-            {LINKS.map((l) => (
+          {LINKS.map((l) => {
+            const ativo = l.href === "/" ? pathname === "/" : pathname.startsWith(l.href);
+            return (
               <Link
                 key={l.href}
                 href={l.href}
-                className="text-wood-800 hover:text-gold-700 px-4 py-3 border-b border-wood-50 last:border-b-0"
+                aria-current={ativo ? "page" : undefined}
+                className={
+                  "py-2 border-b-2 transition-colors " +
+                  (ativo
+                    ? "text-gold-700 border-gold-600"
+                    : "text-wood-800 border-transparent hover:text-gold-700")
+                }
               >
                 {l.label}
               </Link>
-            ))}
+            );
+          })}
+        </nav>
+        <details className="sm:hidden relative">
+          <summary className="list-none cursor-pointer min-h-[44px] flex items-center px-3 border border-wood-200 rounded-md text-sm font-medium text-wood-800">
+            Menu
+          </summary>
+          <nav className="absolute right-0 mt-2 w-48 bg-white border border-wood-100 rounded-md shadow-lg flex flex-col text-sm z-10">
+            {LINKS.map((l) => {
+              const ativo = l.href === "/" ? pathname === "/" : pathname.startsWith(l.href);
+              return (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  aria-current={ativo ? "page" : undefined}
+                  className={
+                    "min-h-[44px] flex items-center px-4 border-b border-wood-50 last:border-b-0 " +
+                    (ativo ? "text-gold-700 font-semibold bg-wood-50" : "text-wood-800 hover:text-gold-700")
+                  }
+                >
+                  {l.label}
+                </Link>
+              );
+            })}
           </nav>
         </details>
       </div>
