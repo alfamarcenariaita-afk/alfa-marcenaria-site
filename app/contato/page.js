@@ -3,6 +3,7 @@ import { construirMetadata } from "../../lib/metadata";
 import { linkWhatsapp } from "../../lib/whatsapp";
 import LocalBusinessJsonLd from "../../components/LocalBusinessJsonLd";
 import { obterConfig } from "../../lib/config";
+import { urlAbrirMapa, urlEmbedMapa } from "../../lib/mapas";
 
 export const metadata = construirMetadata({
   titulo: "Contato",
@@ -34,6 +35,28 @@ export default function ContatoPage() {
           {config.textoBotaoContato}
         </a>
         <p className="text-sm text-wood-700/70 mt-4">{config.textoOrcamento}</p>
+
+        {contato.mapaBusca && (
+          <div className="mt-12">
+            <h2 className="font-serif text-2xl font-bold mb-4 text-wood-900">Como chegar</h2>
+            <iframe
+              title={`Mapa: ${contato.endereco}`}
+              src={urlEmbedMapa(contato.mapaBusca)}
+              className="w-full h-80 rounded-xl border border-wood-200"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+            <a
+              href={urlAbrirMapa(contato.mapaBusca)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-3 text-gold-700 font-semibold hover:underline"
+            >
+              Abrir no Google Maps →
+            </a>
+          </div>
+        )}
       </section>
     </>
   );

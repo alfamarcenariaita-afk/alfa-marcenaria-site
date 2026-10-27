@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { obterPagina } from "../lib/content";
 import { obterConfig } from "../lib/config";
+import { urlAbrirMapa } from "../lib/mapas";
 
 const LINKS = [
   { href: "/", label: "Início" },
@@ -21,6 +22,18 @@ export default function Footer() {
         <div>
           <p className="font-serif font-semibold text-white text-base">{nomeSite}</p>
           <p className="mt-2 text-wood-200">{contato.endereco}</p>
+          {contato.mapaBusca && (
+            <p>
+              <a
+                href={urlAbrirMapa(contato.mapaBusca)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold-500 hover:underline"
+              >
+                Ver no Google Maps
+              </a>
+            </p>
+          )}
           <p className="text-wood-200">{contato.telefone}</p>
         </div>
         <nav aria-label="Navegação do rodapé" className="flex flex-col gap-2">

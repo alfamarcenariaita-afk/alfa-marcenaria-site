@@ -55,7 +55,9 @@ collections:
           - { label: Título, name: titulo, widget: string }
           - { label: Telefone, name: telefone, widget: string }
           - { label: "WhatsApp (só números)", name: whatsapp, widget: string }
-          - { label: Endereço, name: endereco, widget: string }
+          - { label: "Endereço completo (aparece no site e no rodapé)", name: endereco, widget: string }
+          - { label: "Só rua e bairro (usado pelo Google)", name: enderecoRua, widget: string, required: false }
+          - { label: "Busca do Google Maps (endereço ou nome do local; vazio = sem mapa)", name: mapaBusca, widget: string, required: false }
           - { label: "Instagram (@usuario)", name: instagram, widget: string }
           - { label: "Horário de atendimento", name: horario, widget: string }
           - { label: "Texto extra", name: body, widget: markdown, required: false }
