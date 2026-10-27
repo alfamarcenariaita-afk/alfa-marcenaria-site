@@ -1,7 +1,7 @@
 ---
 titulo: "Janela veneziana em madeira: como funciona e quando escolher"
 data: 2026-09-15
-imagemCapa: /images/uploads/janela-veneziana.jpg
+imagemCapa: /images/uploads/catalogo-janela-veneziana.jpg
 resumo: A janela veneziana usa palhetas em madeira maciça pra controlar luz e ventilação. Veja onde ela funciona melhor.
 ---
 

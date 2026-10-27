@@ -2,6 +2,7 @@
 titulo: "Janela vitrô panorâmico: como aproveitar a vista com moldura em madeira"
 data: 2026-09-15
 resumo: A janela vitrô panorâmico maximiza a área de vidro sem perder o acabamento em madeira ao redor. Veja quando ela vale o investimento.
+imagemCapa: /images/uploads/catalogo-janela-vitro-panoramico.jpg
 ---
 
 Tem obra com uma vista que merece ser vista de dentro de casa, não só do quintal. É pra isso que existe a janela vitrô panorâmico.

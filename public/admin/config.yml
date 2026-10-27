@@ -9,8 +9,11 @@ backend:
   # Precisa ser exatamente o mesmo dominio de `siteConfig.url` em lib/metadata.js (YAML nao
   # consegue referenciar o valor JS) — se o dominio final mudar, atualizar aqui tambem, senao
   # o painel chama /api/auth no dominio antigo e o login do CMS quebra sem erro claro.
-  base_url: https://alfamarcenaria.com.br/api
-  auth_endpoint: auth
+  # IMPORTANTE: base_url tem que ser SO a origem (sem /api no final): o Decap compara
+  # `event.origin === base_url` no handshake do popup de login, e a origem nunca tem caminho.
+  # Com "/api" aqui o popup do GitHub volta pra /api/callback e fica em branco pra sempre.
+  base_url: https://alfamarcenaria.com.br
+  auth_endpoint: api/auth
 
 media_folder: public/images/uploads
 public_folder: /images/uploads

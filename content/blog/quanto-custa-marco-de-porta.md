@@ -1,7 +1,7 @@
 ---
 titulo: Quanto custa um marco de porta em madeira?
 data: 2026-09-01
-imagemCapa: /images/uploads/marco-porta-oficina.jpg
+imagemCapa: /images/uploads/catalogo-marco-de-porta.jpg
 resumo: O preço de um marco de porta em madeira maciça sob medida varia principalmente por três fatores. Veja quais são e como pedir um orçamento certeiro.
 ---
 

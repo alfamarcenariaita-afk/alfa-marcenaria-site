@@ -1,7 +1,7 @@
 ---
 titulo: "Marco de porta em madeira: tudo que você precisa saber antes de pedir"
 data: 2026-09-15
-imagemCapa: /images/uploads/marco-porta-oficina.jpg
+imagemCapa: /images/uploads/catalogo-marco-de-porta.jpg
 resumo: O marco de porta em madeira maciça é feito sob medida pra espessura exata da parede. Veja quando trocar, qual madeira usar e como pedir sem erro.
 ---
 

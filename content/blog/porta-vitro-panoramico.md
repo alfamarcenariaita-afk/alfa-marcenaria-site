@@ -1,7 +1,7 @@
 ---
 titulo: "Porta vitrô panorâmico: como integrar ambientes internos e externos"
 data: 2026-09-15
-imagemCapa: /images/uploads/porta-sanfonada-vidro-veneziana.jpg
+imagemCapa: /images/uploads/catalogo-porta-vitro-panoramico.jpg
 resumo: A porta vitrô panorâmico usa grande área de vidro emoldurada em madeira maciça pra integrar sala, varanda e jardim. Veja como funciona.
 ---
 

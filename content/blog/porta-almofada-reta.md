@@ -1,7 +1,7 @@
 ---
 titulo: "Porta almofada reta em madeira: o clássico que não sai de moda"
 data: 2026-09-15
-imagemCapa: /images/uploads/porta-almofada-diagonal.jpg
+imagemCapa: /images/uploads/catalogo-porta-almofada-reta.jpg
 resumo: A porta almofada reta é o modelo mais pedido em madeira maciça sob medida. Veja por que ela é tão usada e como escolher a madeira certa.
 ---
 

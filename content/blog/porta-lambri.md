@@ -1,7 +1,7 @@
 ---
 titulo: "Porta lambri em madeira: o que é e onde ela combina"
 data: 2026-09-15
-imagemCapa: /images/uploads/porta-lambri-oficina.jpg
+imagemCapa: /images/uploads/catalogo-porta-lambri.jpg
 resumo: A porta lambri usa réguas de madeira maciça bem alinhadas e é a base da maioria das portas pivotantes modernas. Veja quando ela é a escolha certa.
 ---
 

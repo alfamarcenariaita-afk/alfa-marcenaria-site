@@ -32,6 +32,9 @@ Passo a passo pra colocar o site no ar. Tudo em nome da própria Alfa/Lucilene, 
    `usuario-da-alfa/alfa-marcenaria-site`, **e também o `base_url` em `public/admin/config.yml`**
    (tem que ser exatamente o mesmo domínio de `siteConfig.url`, senão o painel `/admin` chama
    `/api/auth` no domínio antigo e o login do CMS para de funcionar sem erro claro).
+   O `base_url` é **só o domínio, sem `/api`** (o caminho vai em `auth_endpoint: api/auth`): o Decap
+   compara a origem da janela de login com o `base_url` inteiro, e com `/api` no final o popup do
+   GitHub fica em branco depois de autorizar.
 
 ## 4. GitHub OAuth App (login do painel `/admin`)
 

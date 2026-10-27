@@ -1,7 +1,7 @@
 ---
 titulo: "Marco de janela em madeira sob medida: quando trocar e como pedir"
 data: 2026-09-15
-imagemCapa: /images/uploads/beiral-janela-acabamento.jpg
+imagemCapa: /images/uploads/catalogo-marco-de-janela.jpg
 resumo: O marco de janela sustenta o encaixe e o acabamento da janela na parede. Veja quando ele precisa ser trocado e como pedir o orçamento certo.
 ---
 

@@ -1,7 +1,7 @@
 ---
 titulo: "Painel ripado em madeira: usos em fachada e ambientes internos"
 data: 2026-09-15
-imagemCapa: /images/uploads/porta-pivotante-marmore.jpg
+imagemCapa: /images/uploads/catalogo-painel-ripado.jpg
 resumo: O painel ripado dá presença a paredes e fechamentos com réguas de madeira maciça. Veja os usos mais comuns em fachadas e interiores.
 ---
 

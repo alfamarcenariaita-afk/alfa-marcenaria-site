@@ -1,7 +1,7 @@
 ---
 titulo: "Porta almofada com vitrô: quando vale a pena escolher"
 data: 2026-09-15
-imagemCapa: /images/uploads/porta-almofada-vitro-ferro.jpg
+imagemCapa: /images/uploads/catalogo-porta-almofada-vitro.jpg
 resumo: A porta almofada com vitrô combina madeira maciça e vidro pra deixar a entrada mais clara sem perder o acabamento nobre. Veja quando ela faz sentido.
 ---
 

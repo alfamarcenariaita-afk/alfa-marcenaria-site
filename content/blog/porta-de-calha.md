@@ -2,6 +2,7 @@
 titulo: "Porta de calha: o que é e quando usar em vez da porta comum"
 data: 2026-09-15
 resumo: A porta de calha desliza embutida na parede, sem gastar área de abertura. Veja quando ela é a melhor escolha e como funciona a instalação.
+imagemCapa: /images/uploads/catalogo-porta-de-calha.jpg
 ---
 
 Banheiro pequeno, lavanderia apertada, ambiente integrado onde a porta comum "rouba" espaço de circulação: em qualquer um desses casos, a porta de calha costuma resolver.
