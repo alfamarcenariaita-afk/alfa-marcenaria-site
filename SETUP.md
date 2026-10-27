@@ -102,3 +102,27 @@ resto do site.
 - `https://alfamarcenaria.com.br/sitemap.xml` lista todas as páginas + posts.
 - `https://alfamarcenaria.com.br/robots.txt` bloqueia `/admin` e aponta pro sitemap.
 - Rodar o Lighthouse (aba Lighthouse do DevTools do Chrome) numa página e conferir performance/SEO.
+
+## 9. SEO, GEO e AEO (o que já está no código e o que falta fazer fora dele)
+
+**Já está no site:** título, descrição e imagem de compartilhamento únicos por página; dados
+estruturados (empresa, site, serviço, artigo, FAQ, trilha de navegação, contato); página própria
+para cada serviço (`/servicos/[slug]`); FAQ na Home e nos posts; data de publicação/atualização
+nos posts; `sitemap.xml`; `robots.txt` liberando os robôs de IA (GPTBot, ClaudeBot, PerplexityBot,
+Google-Extended etc.); `/llms.txt` com o resumo da empresa para assistentes de IA.
+
+**Falta fazer (só a Lucilene consegue, com a conta Google dela):**
+1. **Perfil da Empresa no Google (Google Meu Negócio):** criar/reivindicar o perfil com o MESMO nome,
+   endereço (Rua Joaquim Augusto França, 358, São José, Itabirito/MG), telefone ((31) 9 8621-9215) e
+   horário do site. É o que mais pesa em "marcenaria em Itabirito" e no mapa. Depois, copiar o link
+   de avaliação do perfil para o painel: Configurações do site → "Link para avaliar no Google".
+2. **Google Search Console:** adicionar `https://alfamarcenaria.com.br`, verificar o domínio (registro
+   TXT no Registro.br) e enviar `https://alfamarcenaria.com.br/sitemap.xml`.
+3. **Bing Webmaster Tools** (alimenta ChatGPT e Copilot): importar o site do Search Console e enviar o sitemap.
+4. **Depoimentos (UGC):** pedir ao cliente o texto e a foto da peça instalada (o botão "Já é cliente?"
+   do site já manda a mensagem pronta). No painel: Depoimentos de clientes → novo, e **só marcar
+   "autorizou publicar" depois do OK do cliente** (LGPD). Sem essa marca, o depoimento não aparece.
+5. **Posts:** ao revisar um post, preencher "Atualizado em" no painel (a data aparece no Google e nas IAs).
+
+**Por que não há estrelas/avaliação no Google (aggregateRating):** o Google ignora avaliações que
+a própria empresa publica sobre si; as estrelas só vêm das avaliações reais do Perfil da Empresa.

@@ -1,13 +1,18 @@
 import { obterPagina } from "../../lib/content";
 import { construirMetadata } from "../../lib/metadata";
 import { linkWhatsapp } from "../../lib/whatsapp";
-import LocalBusinessJsonLd from "../../components/LocalBusinessJsonLd";
+import JsonLd from "../../components/JsonLd";
+import Breadcrumbs from "../../components/Breadcrumbs";
+import ConviteDepoimento from "../../components/ConviteDepoimento";
 import { obterConfig } from "../../lib/config";
-import { urlAbrirMapa, urlEmbedMapa } from "../../lib/mapas";
+import { siteConfig } from "../../lib/metadata";
+import { paginaDeContato } from "../../lib/schema";
+import MapaAlfa from "../../components/MapaAlfa";
 
 export const metadata = construirMetadata({
-  titulo: "Contato",
-  descricao: "Fale com a Alfa Marcenaria por WhatsApp ou telefone. Atendimento em Itabirito/MG.",
+  titulo: "Contato e orçamento de marcenaria em Itabirito/MG",
+  descricao:
+    "Peça seu orçamento de marcenaria sob medida por WhatsApp ou telefone. Alfa Marcenaria: Rua Joaquim Augusto França, 358, São José, Itabirito/MG. Segunda a sexta, 8h às 18h.",
   caminho: "/contato",
 });
 
@@ -16,8 +21,9 @@ export default function ContatoPage() {
   const config = obterConfig();
   return (
     <>
-      <LocalBusinessJsonLd contato={contato} />
+      <JsonLd dados={paginaDeContato(`${siteConfig.url}/contato`)} />
       <section className="max-w-3xl mx-auto px-4 py-16">
+        <Breadcrumbs itens={[{ nome: "Contato", caminho: "/contato" }]} />
         <h1 className="font-serif text-3xl font-bold mb-6 text-wood-900">{contato.titulo}</h1>
         <dl className="space-y-2 text-wood-700">
           <div><dt className="font-semibold inline text-wood-900">Telefone: </dt><dd className="inline">{contato.telefone}</dd></div>
@@ -39,24 +45,11 @@ export default function ContatoPage() {
         {contato.mapaBusca && (
           <div className="mt-12">
             <h2 className="font-serif text-2xl font-bold mb-4 text-wood-900">Como chegar</h2>
-            <iframe
-              title={`Mapa: ${contato.endereco}`}
-              src={urlEmbedMapa(contato.mapaBusca)}
-              className="w-full h-80 rounded-xl border border-wood-200"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
-            <a
-              href={urlAbrirMapa(contato.mapaBusca)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-3 text-gold-700 font-semibold hover:underline"
-            >
-              Abrir no Google Maps →
-            </a>
+            <MapaAlfa busca={contato.mapaBusca} logo={config.logo} nome={config.nomeSite} className="h-80" />
           </div>
         )}
+
+        <ConviteDepoimento whatsapp={contato.whatsapp} linkGoogle={config.linkAvaliacaoGoogle} className="mt-12" />
       </section>
     </>
   );

@@ -1,10 +1,11 @@
 import { obterColecao } from "../../lib/content";
 import { construirMetadata } from "../../lib/metadata";
 import Card from "../../components/Card";
+import Breadcrumbs from "../../components/Breadcrumbs";
 
 export const metadata = construirMetadata({
-  titulo: "Portfólio",
-  descricao: "Trabalhos entregues pela Alfa Marcenaria em Itabirito/MG.",
+  titulo: "Portfólio: portas, janelas e escadas de madeira entregues",
+  descricao: "Trabalhos entregues pela Alfa Marcenaria em Itabirito/MG: portas, janelas, portões e escadas em madeira maciça.",
   caminho: "/portfolio",
 });
 
@@ -12,6 +13,7 @@ export default function PortfolioPage() {
   const trabalhos = obterColecao("portfolio");
   return (
     <section className="max-w-5xl mx-auto px-4 py-16">
+      <Breadcrumbs itens={[{ nome: "Portfólio", caminho: "/portfolio" }]} />
       <h1 className="font-serif text-3xl font-bold mb-8 text-wood-900">Portfólio</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {trabalhos.map((t) => (

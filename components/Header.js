@@ -3,16 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const LINKS = [
-  { href: "/", label: "Início" },
-  { href: "/sobre", label: "Sobre" },
-  { href: "/servicos", label: "Serviços" },
-  { href: "/portfolio", label: "Portfólio" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contato", label: "Contato" },
-];
+import { linksNav } from "../lib/nav";
 
-export default function Header({ nome = "Alfa Marcenaria", logo = "/logo.png" }) {
+export default function Header({ nome = "Alfa Marcenaria", logo = "/logo.png", links = linksNav(false) }) {
   const pathname = usePathname();
 
   return (
@@ -25,7 +18,7 @@ export default function Header({ nome = "Alfa Marcenaria", logo = "/logo.png" })
           </span>
         </Link>
         <nav className="hidden sm:flex gap-6 text-sm font-medium">
-          {LINKS.map((l) => {
+          {links.map((l) => {
             const ativo = l.href === "/" ? pathname === "/" : pathname.startsWith(l.href);
             return (
               <Link
@@ -49,7 +42,7 @@ export default function Header({ nome = "Alfa Marcenaria", logo = "/logo.png" })
             Menu
           </summary>
           <nav className="absolute right-0 mt-2 w-48 bg-white border border-wood-100 rounded-md shadow-lg flex flex-col text-sm z-10">
-            {LINKS.map((l) => {
+            {links.map((l) => {
               const ativo = l.href === "/" ? pathname === "/" : pathname.startsWith(l.href);
               return (
                 <Link

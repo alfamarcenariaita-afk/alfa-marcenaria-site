@@ -2,28 +2,41 @@ import Link from "next/link";
 import { obterPagina, obterColecao } from "../lib/content";
 import { construirMetadata } from "../lib/metadata";
 import { linkWhatsapp } from "../lib/whatsapp";
-import LocalBusinessJsonLd from "../components/LocalBusinessJsonLd";
 import Card from "../components/Card";
 import InstagramFeed from "../components/InstagramFeed";
+import Faq from "../components/Faq";
+import Depoimentos from "../components/Depoimentos";
+import ConviteDepoimento from "../components/ConviteDepoimento";
 import { obterConfig } from "../lib/config";
 import { paraRgb } from "../lib/tema";
+import { depoimentosAutorizados } from "../lib/depoimentos";
 
-export const metadata = construirMetadata({
-  descricao:
-    "Marcenaria sob medida em Itabirito/MG: portas, marcos, alizares e corrimões em madeira de qualidade.",
-  caminho: "/",
-});
+// Titulo e descricao da Home editaveis no painel (Configuracoes > SEO); vazio = padrao do site.
+export function generateMetadata() {
+  const config = obterConfig();
+  const base = construirMetadata({
+    descricao: config.seoDescricaoHome || undefined,
+    caminho: "/",
+    imagem: config.bannerImagem,
+  });
+  if (!config.seoTituloHome) return base;
+  return {
+    ...base,
+    title: config.seoTituloHome,
+    openGraph: { ...base.openGraph, title: config.seoTituloHome },
+    twitter: { ...base.twitter, title: config.seoTituloHome },
+  };
+}
 
 export default function HomePage() {
   const config = obterConfig();
+  const depoimentos = depoimentosAutorizados().slice(0, 4);
   const SELOS = config.selos;
   const [r, g, b] = paraRgb(config.corEscura, "#251A11");
   const home = obterPagina("home");
-  const contato = obterPagina("contato");
   const servicosDestaque = obterColecao("servicos").slice(0, 3);
   return (
     <>
-      <LocalBusinessJsonLd contato={contato} />
       <section
         className="relative bg-cover bg-center"
         style={{ backgroundImage: `url(${config.bannerImagem})` }}
@@ -72,6 +85,7 @@ export default function HomePage() {
                 titulo={s.nome}
                 categoria={s.categoria}
                 descricaoHtml={s.corpoHtml}
+                href={`/servicos/${s.slug}`}
               />
             ))}
           </div>
@@ -82,6 +96,15 @@ export default function HomePage() {
           </div>
         </section>
       )}
+
+      {depoimentos.length > 0 && (
+        <div className="max-w-5xl mx-auto px-4 pb-12">
+          <Depoimentos itens={depoimentos} titulo={config.tituloDepoimentos} />
+          <ConviteDepoimento whatsapp={home.whatsapp} linkGoogle={config.linkAvaliacaoGoogle} className="mt-8" />
+        </div>
+      )}
+
+      <Faq itens={config.faq} titulo={config.tituloFaq} className="max-w-3xl mx-auto px-4 pb-16" />
 
       <InstagramFeed />
     </>

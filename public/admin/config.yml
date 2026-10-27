@@ -88,6 +88,17 @@ collections:
             fields:
               - { label: Título, name: titulo, widget: string }
               - { label: Texto, name: texto, widget: string }
+          - { label: "Google: título da Home (vazio = padrão; ideal até 60 letras)", name: seoTituloHome, widget: string, required: false }
+          - { label: "Google: descrição da Home (vazio = padrão; ideal até 155 letras)", name: seoDescricaoHome, widget: text, required: false }
+          - { label: "Título do bloco de perguntas frequentes (Home)", name: tituloFaq, widget: string }
+          - label: "Perguntas frequentes da Home (as respostas aparecem no Google e nas IAs)"
+            name: faq
+            widget: list
+            fields:
+              - { label: Pergunta, name: pergunta, widget: string }
+              - { label: Resposta, name: resposta, widget: text }
+          - { label: "Título dos depoimentos (aparece quando houver depoimento cadastrado)", name: tituloDepoimentos, widget: string }
+          - { label: "Link para avaliar no Google (opcional; do Perfil da Empresa no Google)", name: linkAvaliacaoGoogle, widget: string, required: false }
           - { label: "Título dos serviços na Home", name: tituloServicosHome, widget: string }
           - { label: "Link 'ver todos' na Home", name: textoLinkServicos, widget: string }
           - { label: "Título da página Serviços", name: tituloServicos, widget: string }
@@ -105,7 +116,7 @@ collections:
       - label: Categoria
         name: categoria
         widget: select
-        options: [Portas, Marcos, Janelas, Painéis, Alizares, Corrimãos, Personalizado, Outros]
+        options: [Portas, Marcos, Janelas, Painéis, Alizares, Corrimãos, Escadas, Personalizado, Outros]
         default: Outros
       - { label: Foto, name: imagem, widget: image, required: false }
       - { label: Descrição, name: body, widget: markdown }
@@ -122,6 +133,23 @@ collections:
       - { label: Categoria, name: categoria, widget: string, required: false }
       - { label: Legenda, name: body, widget: markdown, required: false }
 
+  - name: depoimentos
+    label: "Depoimentos de clientes"
+    folder: content/depoimentos
+    create: true
+    slug: "{{slug}}"
+    identifier_field: nome
+    summary: "{{nome}} — {{produto}}"
+    fields:
+      - { label: "Nome do cliente", name: nome, widget: string }
+      - { label: "Bairro ou cidade (opcional)", name: local, widget: string, required: false }
+      - { label: "Produto que o cliente comprou", name: produto, widget: relation, collection: servicos, search_fields: ["nome"], value_field: "{{slug}}", display_fields: ["nome"], required: false }
+      - { label: "Data do depoimento", name: data, widget: datetime }
+      - { label: "Nota de 1 a 5 (opcional)", name: nota, widget: number, value_type: int, min: 1, max: 5, required: false }
+      - { label: "Foto da peça instalada (opcional)", name: foto, widget: image, required: false }
+      - { label: "O cliente autorizou publicar nome, texto e foto? (sem marcar, NÃO aparece no site)", name: autorizado, widget: boolean, default: false }
+      - { label: "Depoimento (palavras do cliente)", name: body, widget: markdown }
+
   - name: blog
     label: Blog
     folder: content/blog
@@ -131,6 +159,7 @@ collections:
     fields:
       - { label: Título, name: titulo, widget: string }
       - { label: Data, name: data, widget: datetime }
+      - { label: "Atualizado em (preencha quando revisar o post; aparece no Google e nas IAs)", name: atualizado, widget: datetime, required: false }
       - { label: "Imagem de capa", name: imagemCapa, widget: image, required: false }
       - { label: "Resumo (aparece no Google)", name: resumo, widget: text }
       - { label: Conteúdo, name: body, widget: markdown }
