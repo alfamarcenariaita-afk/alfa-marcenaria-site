@@ -15,6 +15,9 @@ backend:
 media_folder: public/images/uploads
 public_folder: /images/uploads
 
+# Painel em portugues
+locale: "pt"
+
 # Sem isso, slugs de titulos acentuados (ex.: "Corrimão") viram nomes de arquivo
 # com acento (corrimão.md) em vez de puro ASCII (corrimao.md) — inconsistente
 # com os slugs existentes em content/ (todos ASCII, ex.: marco-de-porta.md).
@@ -53,6 +56,38 @@ collections:
           - { label: "Instagram (@usuario)", name: instagram, widget: string }
           - { label: "Horário de atendimento", name: horario, widget: string }
           - { label: "Texto extra", name: body, widget: markdown, required: false }
+
+  - name: config
+    label: "Configurações do site (cores, banner, logo)"
+    files:
+      - name: config
+        label: "Aparência e textos fixos"
+        file: content/paginas/config.md
+        fields:
+          - { label: "Nome do site (cabeçalho e rodapé)", name: nomeSite, widget: string }
+          - { label: "Logo (imagem do cabeçalho)", name: logo, widget: image, required: false }
+          - { label: "Cor escura (textos, rodapé, botões)", name: corEscura, widget: color }
+          - { label: "Cor de destaque (dourado: links, detalhes)", name: corDestaque, widget: color }
+          - { label: "Cor do fundo das páginas", name: corFundo, widget: color }
+          - { label: "Banner da Home (foto de fundo)", name: bannerImagem, widget: image, required: false }
+          - label: "Escurecimento do banner (0 = foto pura, 90 = bem escuro)"
+            name: bannerEscurecer
+            widget: number
+            value_type: int
+            min: 0
+            max: 90
+            default: 70
+          - label: "Selos da Home (3 destaques abaixo do banner)"
+            name: selos
+            widget: list
+            fields:
+              - { label: Título, name: titulo, widget: string }
+              - { label: Texto, name: texto, widget: string }
+          - { label: "Título dos serviços na Home", name: tituloServicosHome, widget: string }
+          - { label: "Link 'ver todos' na Home", name: textoLinkServicos, widget: string }
+          - { label: "Título da página Serviços", name: tituloServicos, widget: string }
+          - { label: "Texto do botão na página Contato", name: textoBotaoContato, widget: string }
+          - { label: "Frase abaixo do botão (Contato)", name: textoOrcamento, widget: string }
 
   - name: servicos
     label: Serviços

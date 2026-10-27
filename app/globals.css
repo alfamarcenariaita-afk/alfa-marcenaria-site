@@ -4,7 +4,7 @@
 
 /* Anel de foco visivel (teclado) em toda a navegacao, consistente com a paleta da marca. */
 :focus-visible {
-  outline: 2px solid #8f6836;
+  outline: 2px solid rgb(var(--gold-700));
   outline-offset: 2px;
 }
 

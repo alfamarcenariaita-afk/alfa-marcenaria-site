@@ -2,6 +2,7 @@ import { obterPagina } from "../../lib/content";
 import { construirMetadata } from "../../lib/metadata";
 import { linkWhatsapp } from "../../lib/whatsapp";
 import LocalBusinessJsonLd from "../../components/LocalBusinessJsonLd";
+import { obterConfig } from "../../lib/config";
 
 export const metadata = construirMetadata({
   titulo: "Contato",
@@ -11,6 +12,7 @@ export const metadata = construirMetadata({
 
 export default function ContatoPage() {
   const contato = obterPagina("contato");
+  const config = obterConfig();
   return (
     <>
       <LocalBusinessJsonLd contato={contato} />
@@ -29,11 +31,9 @@ export default function ContatoPage() {
           href={linkWhatsapp(contato.whatsapp, "página de Contato")}
           className="inline-block mt-8 bg-wood-900 text-white px-7 py-3 rounded-lg font-semibold hover:bg-wood-800 transition-colors"
         >
-          Falar no WhatsApp
+          {config.textoBotaoContato}
         </a>
-        <p className="text-sm text-wood-700/70 mt-4">
-          Orçamento sem compromisso. Atendimento direto com quem faz a peça, do orçamento à entrega.
-        </p>
+        <p className="text-sm text-wood-700/70 mt-4">{config.textoOrcamento}</p>
       </section>
     </>
   );

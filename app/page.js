@@ -5,6 +5,8 @@ import { linkWhatsapp } from "../lib/whatsapp";
 import LocalBusinessJsonLd from "../components/LocalBusinessJsonLd";
 import Card from "../components/Card";
 import InstagramFeed from "../components/InstagramFeed";
+import { obterConfig } from "../lib/config";
+import { paraRgb } from "../lib/tema";
 
 export const metadata = construirMetadata({
   descricao:
@@ -12,13 +14,10 @@ export const metadata = construirMetadata({
   caminho: "/",
 });
 
-const SELOS = [
-  { titulo: "20+ anos de experiência", texto: "know-how do sócio André no setor de marcenaria" },
-  { titulo: "Acompanhamento até o fim", texto: "da medição à instalação, sem sumir no meio da obra" },
-  { titulo: "Pós-venda incluso", texto: "suporte depois da entrega, não só até o pagamento" },
-];
-
 export default function HomePage() {
+  const config = obterConfig();
+  const SELOS = config.selos;
+  const [r, g, b] = paraRgb(config.corEscura, "#251A11");
   const home = obterPagina("home");
   const contato = obterPagina("contato");
   const servicosDestaque = obterColecao("servicos").slice(0, 3);
@@ -27,9 +26,12 @@ export default function HomePage() {
       <LocalBusinessJsonLd contato={contato} />
       <section
         className="relative bg-cover bg-center"
-        style={{ backgroundImage: "url(/images/uploads/fachada-porta-pivotante.jpg)" }}
+        style={{ backgroundImage: `url(${config.bannerImagem})` }}
       >
-        <div className="absolute inset-0 bg-wood-900/70" />
+        <div
+          className="absolute inset-0"
+          style={{ backgroundColor: `rgb(${r} ${g} ${b} / ${config.bannerEscurecer / 100})` }}
+        />
         <div className="relative max-w-3xl mx-auto px-4 py-24 sm:py-32 text-center">
           <h1 className="font-serif text-4xl sm:text-5xl font-bold text-white leading-tight">
             {home.titulo}
@@ -61,7 +63,7 @@ export default function HomePage() {
 
       {servicosDestaque.length > 0 && (
         <section className="max-w-5xl mx-auto px-4 pb-16">
-          <h2 className="font-serif text-2xl font-bold mb-8 text-center text-wood-900">Nossos serviços</h2>
+          <h2 className="font-serif text-2xl font-bold mb-8 text-center text-wood-900">{config.tituloServicosHome}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {servicosDestaque.map((s) => (
               <Card
@@ -75,7 +77,7 @@ export default function HomePage() {
           </div>
           <div className="text-center mt-8">
             <Link href="/servicos" className="text-gold-700 font-semibold hover:underline">
-              Ver todos os serviços →
+              {config.textoLinkServicos}
             </Link>
           </div>
         </section>

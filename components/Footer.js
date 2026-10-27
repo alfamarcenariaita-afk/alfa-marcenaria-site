@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { obterPagina } from "../lib/content";
+import { obterConfig } from "../lib/config";
 
 const LINKS = [
   { href: "/", label: "Início" },
@@ -12,12 +13,13 @@ const LINKS = [
 
 export default function Footer() {
   const contato = obterPagina("contato");
+  const { nomeSite } = obterConfig();
   const ano = new Date().getFullYear();
   return (
     <footer className="bg-wood-900 text-wood-100 mt-16">
       <div className="max-w-5xl mx-auto px-4 py-10 text-sm grid grid-cols-1 sm:grid-cols-3 gap-8">
         <div>
-          <p className="font-serif font-semibold text-white text-base">Alfa Marcenaria</p>
+          <p className="font-serif font-semibold text-white text-base">{nomeSite}</p>
           <p className="mt-2 text-wood-200">{contato.endereco}</p>
           <p className="text-wood-200">{contato.telefone}</p>
         </div>
@@ -42,7 +44,7 @@ export default function Footer() {
               </a>
             </p>
           )}
-          <p className="mt-2 text-wood-200">© {ano} Alfa Marcenaria</p>
+          <p className="mt-2 text-wood-200">© {ano} {nomeSite}</p>
         </div>
       </div>
     </footer>

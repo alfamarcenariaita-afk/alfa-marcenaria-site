@@ -12,16 +12,16 @@ const LINKS = [
   { href: "/contato", label: "Contato" },
 ];
 
-export default function Header() {
+export default function Header({ nome = "Alfa Marcenaria", logo = "/logo.png" }) {
   const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b-2 border-gold-500/60">
       <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-3">
-          <img src="/logo.png" alt="Alfa Marcenaria" className="h-10 w-auto" width={40} height={40} />
+          <img src={logo} alt={nome} className="h-10 w-auto" width={40} height={40} />
           <span className="font-serif font-semibold text-lg text-wood-900 tracking-wide">
-            Alfa Marcenaria
+            {nome}
           </span>
         </Link>
         <nav className="hidden sm:flex gap-6 text-sm font-medium">
