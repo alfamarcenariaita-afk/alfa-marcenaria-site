@@ -1,7 +1,6 @@
 ---
-nome: Porta Almofada Detalhada
+nome: Portão de garagem
 categoria: Portas
 imagem: /images/uploads/porta-detalhe-paineis.jpg
 ---
-
-Pra quem quer uma porta que não passa despercebida: a porta almofada detalhada leva um desenho mais elaborado nos painéis, sob medida, em madeira maciça. Ideal pra fachadas e entradas que pedem um acabamento de destaque, sem perder a robustez da madeira. **Fala com a Alfa Marcenaria e descreve o estilo que você imagina.**
+Beleza e personalidade para a entrada da sua casa. O portão de garagem de madeira combina a resistência da madeira maciça com um visual marcante, valorizando a fachada e trazendo um toque natural ao projeto. Fabricado com atenção aos detalhes, é uma opção para quem busca unir estética e funcionalidade na construção. **Sua fachada merece um portão à altura do projeto. Solicite seu orçamento com a Alfa Marcenaria.**
