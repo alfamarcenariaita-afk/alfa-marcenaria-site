@@ -27,7 +27,12 @@ const body = Inter({
   display: "swap",
 });
 
-export const metadata = { ...construirMetadata({}), metadataBase: new URL(siteConfig.url) };
+export const metadata = {
+  ...construirMetadata({}),
+  metadataBase: new URL(siteConfig.url),
+  // verificacao do Bing Webmaster Tools (as paginas filhas nao redefinem `verification`, entao herdam)
+  verification: { other: { "msvalidate.01": "8D49FEA637A46A69D04F5CE752639197" } },
+};
 
 export default function RootLayout({ children }) {
   const config = obterConfig();
