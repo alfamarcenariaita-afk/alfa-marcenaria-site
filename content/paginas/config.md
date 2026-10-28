@@ -30,7 +30,7 @@ faq:
   - pergunta: "Preciso ir até a marcenaria para pedir orçamento?"
     resposta: "Não necessariamente. Dá para mandar a medida do vão e fotos por WhatsApp e já receber uma avaliação inicial."
 tituloDepoimentos: O que dizem nossos clientes
-linkAvaliacaoGoogle: ""
+linkAvaliacaoGoogle: "https://g.page/r/Ceb6Ba_Zv5WJEBE/review"
 tituloServicosHome: Nossos serviços
 tituloServicos: Nossos serviços
 textoLinkServicos: Ver todos os serviços →
