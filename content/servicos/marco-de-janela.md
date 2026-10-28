@@ -1,7 +1,6 @@
 ---
-nome: Marco de Janela
+nome: Marco de Janela de Correr Embutido
 categoria: Marcos
 imagem: /images/uploads/catalogo-marco-de-janela.jpg
 ---
-
-Janela empenando ou com folga demais no batente? O problema costuma estar no marco. A Alfa Marcenaria faz marco de janela sob medida em Itabirito/MG, em madeira maciça, na espessura de parede exata da sua obra, garantindo o encaixe certo da janela e do acabamento. **Peça o orçamento pelo WhatsApp e receba resposta rápida.**
+Ideal para quem busca um acabamento discreto e moderno. Esse modelo de marco permite que as folhas da janela de correr deslizem entre a parede, criando um visual mais limpo e aproveitando melhor o espaço. Uma solução inteligente que une funcionalidade e estética, valorizando o acabamento da sua obra. **Está planejando sua janela de correr? Converse com a Alfa Marcenaria e conheça essa opção para sua obra.**
