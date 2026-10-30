@@ -1,5 +1,5 @@
 ---
-nome: Painel Ripado / Porta Ripada
+nome: Porta Ripada Com Painel Integrado
 categoria: Painéis
 imagem: /images/uploads/catalogo-painel-ripado.jpg
 ---
