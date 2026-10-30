@@ -1,7 +1,6 @@
 ---
-titulo: Porta pivotante em construção de pedra
+titulo: Porta Almofada Reta com Vitrô
 imagem: /images/uploads/porta-pivotante-pedra.jpg
 categoria: Portas
 ---
-
-Porta pivotante em madeira maciça, entrada de residência com fachada em pedra.
+Porta  em madeira maciça, entrada de residência com fachada
