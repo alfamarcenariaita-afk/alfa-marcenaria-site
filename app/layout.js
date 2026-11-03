@@ -9,7 +9,7 @@ import { obterConfig } from "../lib/config";
 import { obterPagina } from "../lib/content";
 import { cssDoTema } from "../lib/tema";
 import { grafoGlobal } from "../lib/schema";
-import { depoimentosAutorizados } from "../lib/depoimentos";
+import { temProvaSocial } from "../lib/prova-social";
 import { linksNav } from "../lib/nav";
 
 // Playfair (títulos) + Inter (texto) — dupla clássica/moderna pra passar autoridade
@@ -34,10 +34,10 @@ export const metadata = {
   verification: { other: { "msvalidate.01": "8D49FEA637A46A69D04F5CE752639197" } },
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
   const config = obterConfig();
   const contato = obterPagina("contato");
-  const temDepoimentos = depoimentosAutorizados().length > 0;
+  const temDepoimentos = await temProvaSocial();
   return (
     <html lang="pt-BR" className={`${display.variable} ${body.variable}`}>
       <head>

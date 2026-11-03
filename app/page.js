@@ -6,6 +6,8 @@ import Card from "../components/Card";
 import InstagramFeed from "../components/InstagramFeed";
 import Faq from "../components/Faq";
 import Depoimentos from "../components/Depoimentos";
+import AvaliacoesGoogle from "../components/AvaliacoesGoogle";
+import { buscarAvaliacoesGoogle } from "../lib/avaliacoesGoogle";
 import ConviteDepoimento from "../components/ConviteDepoimento";
 import { obterConfig } from "../lib/config";
 import { paraRgb } from "../lib/tema";
@@ -28,9 +30,10 @@ export function generateMetadata() {
   };
 }
 
-export default function HomePage() {
+export default async function HomePage() {
   const config = obterConfig();
   const depoimentos = depoimentosAutorizados().slice(0, 4);
+  const avaliacoes = await buscarAvaliacoesGoogle();
   const SELOS = config.selos;
   const [r, g, b] = paraRgb(config.corEscura, "#251A11");
   const home = obterPagina("home");
@@ -95,6 +98,14 @@ export default function HomePage() {
             </Link>
           </div>
         </section>
+      )}
+
+      {avaliacoes && (
+        <AvaliacoesGoogle
+          dados={{ ...avaliacoes, itens: avaliacoes.itens.slice(0, 4) }}
+          linkAvaliar={config.linkAvaliacaoGoogle}
+          className="max-w-5xl mx-auto px-4 pb-12"
+        />
       )}
 
       {depoimentos.length > 0 && (

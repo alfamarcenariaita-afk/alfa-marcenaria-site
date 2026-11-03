@@ -1,10 +1,11 @@
 import { obterColecao } from "../lib/content";
 import { siteConfig } from "../lib/metadata";
-import { depoimentosAutorizados } from "../lib/depoimentos";
+import { temProvaSocial } from "../lib/prova-social";
 
 // lastModified so onde ha data real (posts). Paginas sem data ficam sem o campo: data inventada
 // (ex.: "agora" a cada build) faz o Google desconfiar e ignorar o lastmod do site todo.
-export default function sitemap() {
+export default async function sitemap() {
+  const temClientes = await temProvaSocial();
   const fixas = [
     { caminho: "", prioridade: 1 },
     { caminho: "/servicos", prioridade: 0.9 },
@@ -12,7 +13,7 @@ export default function sitemap() {
     { caminho: "/sobre", prioridade: 0.6 },
     { caminho: "/blog", prioridade: 0.7 },
     { caminho: "/contato", prioridade: 0.8 },
-    ...(depoimentosAutorizados().length > 0 ? [{ caminho: "/depoimentos", prioridade: 0.6 }] : []),
+    ...(temClientes ? [{ caminho: "/depoimentos", prioridade: 0.6 }] : []),
   ].map((p) => ({ url: siteConfig.url + p.caminho, priority: p.prioridade }));
 
   const servicos = obterColecao("servicos").map((s) => ({

@@ -3,11 +3,11 @@ import { obterPagina } from "../lib/content";
 import { obterConfig } from "../lib/config";
 import MapaAlfa from "./MapaAlfa";
 import { linksNav } from "../lib/nav";
-import { depoimentosAutorizados } from "../lib/depoimentos";
+import { temProvaSocial } from "../lib/prova-social";
 
-export default function Footer() {
+export default async function Footer() {
   const contato = obterPagina("contato");
-  const links = linksNav(depoimentosAutorizados().length > 0);
+  const links = linksNav(await temProvaSocial());
   const { nomeSite, logo } = obterConfig();
   const ano = new Date().getFullYear();
   return (
